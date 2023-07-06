@@ -1,0 +1,3 @@
+class Election < ApplicationRecord
+  
+end
