@@ -1,0 +1,12 @@
+<h1><%= @election.name %> Candidates</h1>
+
+<% @candidates.each do |candidate| %>
+  <h3><%= candidate.name %></h3>
+  <ul>
+    <li><b>VOTES: </b><%= candidate.votes %></li>
+    <li><b>INCUMBENT: </b><%= candidate.incumbent %></li>
+    <li><b>ELECTION ID: </b><%= candidate.election_id %></li>
+    <li><b>CREATED AT: </b><%= candidate.created_at %></li>
+    <li><b>UPDATED AT: </b><%= candidate.updated_at %></li>
+  </ul>
+<% end %>

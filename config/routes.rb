@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
   get "/elections", to: "elections#index"
   get "/elections/:id", to: "elections#show"
+  get "/elections/:id/candidates", to: "elections#candidates_index"
 
   get "/candidates", to: "candidates#index"
   get "/candidates/:id", to: "candidates#show"
+
+
 end
