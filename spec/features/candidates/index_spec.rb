@@ -12,13 +12,12 @@ RSpec.describe "candidates index page", type: :feature do
           name: "Mike Johnston",
           votes: 42273,
           incumbent: false,
-          election_id: 1
+
         )
         candidate2 = Candidate.create!(
           name: "Kelly Brough",
           votes: 34627,
           incumbent: false,
-          election_id: 1
         )
 
         visit "/candidates"
@@ -26,14 +25,12 @@ RSpec.describe "candidates index page", type: :feature do
         expect(page).to have_content(candidate1.name)
         expect(page).to have_content(candidate1.votes)
         expect(page).to have_content(candidate1.incumbent)
-        expect(page).to have_content(candidate1.election_id)
         expect(page).to have_content(candidate1.created_at)
         expect(page).to have_content(candidate1.updated_at)
 
         expect(page).to have_content(candidate2.name)
         expect(page).to have_content(candidate2.votes)
         expect(page).to have_content(candidate2.incumbent)
-        expect(page).to have_content(candidate2.election_id)
         expect(page).to have_content(candidate2.created_at)
         expect(page).to have_content(candidate2.updated_at)
       end
