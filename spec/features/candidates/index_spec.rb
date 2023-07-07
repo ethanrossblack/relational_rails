@@ -11,13 +11,12 @@ RSpec.describe "candidates index page", type: :feature do
         candidate1 = Candidate.create!(
           name: "Mike Johnston",
           votes: 42273,
-          incumbent: false,
-
+          incumbent: false
         )
         candidate2 = Candidate.create!(
           name: "Kelly Brough",
           votes: 34627,
-          incumbent: false,
+          incumbent: false
         )
 
         visit "/candidates"
