@@ -8,28 +8,29 @@ RSpec.describe "candidates index page", type: :feature do
   describe "as a visitor" do
     describe "when I visit \"candidates\"" do
       it "then I see each Candidate in the system including the Candidate's attributes" do
-        candidate1 = Candidate.create!(
-          name: "Mike Johnston",
-          votes: 42273,
-          incumbent: false
-        )
-        candidate2 = Candidate.create!(
-          name: "Kelly Brough",
-          votes: 34627,
-          incumbent: false
-        )
+        mayor = Election.create!(
+          name: "Denver Mayor",
+          priority: 1,
+          year: 2023,
+          runoff: false)
+        candidate1 = mayor.candidates.create!(name: "Mike Johnston", votes: 42273, incumbent: false)
+        candidate2 = mayor.candidates.create!(name: "Kelly Brough", votes: 34627, incumbent: false)
 
         visit "/candidates"
 
+        save_and_open_page
+        
         expect(page).to have_content(candidate1.name)
         expect(page).to have_content(candidate1.votes)
         expect(page).to have_content(candidate1.incumbent)
+        expect(page).to have_content(candidate1.election_id)
         expect(page).to have_content(candidate1.created_at)
         expect(page).to have_content(candidate1.updated_at)
 
         expect(page).to have_content(candidate2.name)
         expect(page).to have_content(candidate2.votes)
         expect(page).to have_content(candidate2.incumbent)
+        expect(page).to have_content(candidate1.election_id)
         expect(page).to have_content(candidate2.created_at)
         expect(page).to have_content(candidate2.updated_at)
       end
