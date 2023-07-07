@@ -1,11 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "elections index page", type: :feature do
-
-  # As a visitor
-  # When I visit '/elections'
-  # Then I see the name of each election record in the system
-
   describe "as a visitor" do
     describe "when I visit \"/elections\"" do
       it "then I see the name of each election record in the system" do
