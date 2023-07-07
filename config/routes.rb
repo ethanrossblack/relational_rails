@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get "/elections/:id", to: "elections#show"
 
   get "/candidates", to: "candidates#index"
+  get "/candidates/:id", to: "candidates#show"
 end
