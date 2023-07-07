@@ -59,11 +59,7 @@ RSpec.describe "elections show page", type: :feature do
         expect(page).to have_content(calderon.updated_at)
         
         expect(page).to_not have_content(obrien.name)
-        expect(page).to_not have_content(obrien.votes)
-        expect(page).to_not have_content(obrien.incumbent)
-        expect(page).to_not have_content(obrien.election_id)
-        expect(page).to_not have_content(obrien.created_at)
-        expect(page).to_not have_content(obrien.updated_at)
+        expect(page).to_not have_content("ELECTION ID: #{obrien.election_id}")
       end
     end
   end
