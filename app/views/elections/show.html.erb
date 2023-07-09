@@ -1,12 +1,10 @@
 <h1><%= @election.name %></h1>
 
-<h3>Priority</h3>
-<p><%= @election.priority %></p>
-<h3>Year</h3>
-<p><%= @election.year %></p>
-<h3>Runoff?</h3>
-<p><%= @election.runoff %></p>
-<h3>Created At</h3>
-<p><%= @election.created_at %></p>
-<h3>Updated At</h3>
-<p><%= @election.updated_at %></p>
+<ul>
+  <li><b>YEAR: </b><%= @election.year %></li>
+  <li><b>CANDIDATES: </b><%= @election.num_candidates %></li>
+  <li><b>RUNOFF: </b><%= @election.runoff %></li>
+  <li><b>PRIORITY: </b><%= @election.priority %></li>
+  <li><b>CREATED AT: </b><%= @election.created_at %></li>
+  <li><b>UPDATED AT: </b><%= @election.updated_at %></li>
+</ul>
