@@ -36,12 +36,39 @@ RSpec.describe "elections index page", type: :feature do
       end
 
       # User Story 11, Parent Creation
-      xit "then I see a link to create a new Election record, \"New Election\"" do
+      it "then I see a link to create a new Election record, \"New Election\"" do
         visit "/elections"
-
-        expect 
+        
+        expect(page).to have_link("New Election")
       end
+      
+      describe "when I click \"New Election\"," do
+        
+        # User Story 11, Parent Creation
+        it "then I am taken to \"/elections/new\" where I see a form for a new Election record" do
+          
+        end
+        
+        describe "when I fill out the form with a new Election's attributes," do
+          describe "and I click the button \"Create Election\" to submit the form" do
+            
+            # User Story 11, Parent Creation
+            it "then a \"POST\" request is sent to the \"elections\" route," do
+              
+            end
+            
+            # User Story 11, Parent Creation
+            it "a new election record is created," do
+              
+            end
+            
+            # User Story 11, Parent Creation
+            it "and I am redirected to the Parent Index page where I see the new parent displayed" do
 
+            end
+          end
+        end
+      end
     end
   end
 end
