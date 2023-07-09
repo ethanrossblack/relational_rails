@@ -20,6 +20,25 @@ RSpec.describe "elections index page", type: :feature do
         expect(page).to have_content(mayor.name)
         expect(page).to have_content(council_d1.name)
       end
+
+      it "I see that records are ordered by most recently created first" do
+        council_d1 = Election.create!(name: "City Council: District 1", priority: 4, year: 2023, runoff: false)
+        sleep 0.5
+        auditor = Election.create!(name: "Auditor", priority: 2, year: 2023, runoff: false)
+        sleep 0.5
+        mayor = Election.create!(name: "Denver Mayor", priority: 1, year: 2023, runoff: false)
+
+        visit "/elections"
+
+        save_and_open_page
+
+        expect(mayor.name).to appear_before(council_d1.name)
+        expect(mayor.name).to appear_before(auditor.name)
+
+        expect(auditor.name).to appear_before(council_d1.name)
+      end
+
+      it "I see that "
     end
   end
 end
