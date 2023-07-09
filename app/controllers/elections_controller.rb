@@ -1,6 +1,6 @@
 class ElectionsController < ApplicationController
   def index
-    @elections = Election.all
+    @elections = Election.order(created_at: :desc)
   end
 
   def show
