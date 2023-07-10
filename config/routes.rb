@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "/elections/:id", to: "elections#show"
   get "/elections/:id/candidates", to: "elections#candidates_index"
   post "/elections", to: "elections#create"
+  get "/elections/:id/edit", to: "elections#edit"
+  patch "/elections/:id", to: "elections#update"
 
   get "/candidates", to: "candidates#index"
   get "/candidates/:id", to: "candidates#show"

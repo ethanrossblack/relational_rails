@@ -1,6 +1,6 @@
 <h1><%= @election.name %></h1>
-<p><a href=<%= "/elections/#{@election.id}/candidates" %>>View Candidates</a></p>
-<p><a href=<%= "/elections/#{@election.id}/edit" %>>Update Election</a></p>
+<p><a href= "/elections/<%= @election.id %>/candidates">View Candidates</a></p>
+<p><a href="/elections/<%= @election.id %>/edit" >Update Election</a></p>
 <ul>
   <li><b>YEAR: </b><%= @election.year %></li>
   <li><b>CANDIDATES: </b><%= @election.num_candidates %></li>

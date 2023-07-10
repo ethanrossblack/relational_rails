@@ -21,6 +21,22 @@ class ElectionsController < ApplicationController
     redirect_to "/elections"
   end
 
+  def edit
+    @election = Election.find(params[:id])
+  end
+
+  def update
+    election = Election.find(params[:id])
+    election.update({
+      name: params[:election][:name],
+      priority: params[:election][:priority],
+      year: params[:election][:year],
+      runoff: params[:election][:runoff]
+      })
+    election.save
+    redirect_to "/elections/#{election.id}"
+  end
+
   # private
   #   def election_params
   #     params.permit(:name)
