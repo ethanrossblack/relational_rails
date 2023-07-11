@@ -34,7 +34,6 @@ describe "Candidate Update", type: :feature do
           it "then a \`PATCH\` request is sent to \"/candidates/:id\", the candidate's data is updated, and I am redirected to the Candidate Show page where I see the Candidate's updated information" do
             visit "/candidates/#{@johnston.id}/edit"
             
-            save_and_open_page
             fill_in("Name", with: "Shmike Shmohnston")
             fill_in("Votes", with: 42042)
             check("Incumbent")

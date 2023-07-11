@@ -34,13 +34,9 @@ RSpec.describe "elections show page", type: :feature do
 
         visit "/elections/#{mayor.id}"
 
-        save_and_open_page
-
         expect(page).to have_content("CANDIDATES: 5")
         
         visit "/elections/#{auditor.id}"
-
-        save_and_open_page
 
         expect(page).to have_content("CANDIDATES: 2")
       end
