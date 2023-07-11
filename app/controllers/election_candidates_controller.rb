@@ -1,7 +1,12 @@
 class ElectionCandidatesController < ApplicationController
   def index
     @election = Election.find(params[:id])
-    @candidates = Candidate.where(election_id: params[:id])
+    
+    if params[:sort] == "name"
+      @candidates = @election.sort_candidates_a_z
+    else
+      @candidates = @election.candidates
+    end
   end
 
   def new

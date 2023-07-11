@@ -3,7 +3,6 @@ class ElectionsController < ApplicationController
     @elections = Election.order(created_at: :desc)
   end
 
-
   def show
     @election = Election.find(params[:id])
   end

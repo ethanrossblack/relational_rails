@@ -3,19 +3,12 @@ require "rails_helper"
 describe Election, type: :model do
   before :each do
     @mayor = Election.create!(name: "Denver Mayor", priority: 1, year: 2023, runoff: false)
-    @auditor = Election.create!(name: "Auditor", priority: 2, year: 2023, runoff: false)
-    @clerk = Election.create!(name: "Clerk and Recorder", priority: 2, year: 2023, runoff: false)
 
     @mayor_1 = @mayor.candidates.create!(name: "Mike Johnston", votes: 42273, incumbent: false)
     @mayor_2 = @mayor.candidates.create!(name: "Kelly Brough", votes: 34627, incumbent: false)
     @mayor_3 = @mayor.candidates.create!(name: "Lisa Calderón", votes: 31493, incumbent: false)
     @mayor_4 = @mayor.candidates.create!(name: "Andy Rougeot", votes: 19927, incumbent: false)
     @mayor_5 = @mayor.candidates.create!(name: "Leslie Herod", votes: 18506, incumbent: false)
-
-    @auditor_1 = @auditor.candidates.create!(name: "Timothy M. O'Brien", votes: 84856, incumbent: true)
-    @auditor_2 = @auditor.candidates.create!(name: "Erik J. Clarke", votes: 58657, incumbent: false)
-
-    @clerk_1 = @clerk.candidates.create!(name: "Paul D. López", votes: 128772, incumbent: true)
   end
 
   describe "validations" do
@@ -57,7 +50,7 @@ describe Election, type: :model do
         leslie = @mayor_5
 
         sorted = @mayor.sort_candidates_a_z
-        require "pry"; binding.pry
+
         expect(sorted).to eq([andy, kelly, leslie, lisa, mike])
       end
     end
