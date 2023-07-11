@@ -48,24 +48,21 @@ describe "Parent Child Creation", type: :feature do
             fill_in("Votes", with: 8309)
             
             click_button "Create Candidate"
-            
+
             expect(current_path).to eq("/elections/#{@mayor.id}/candidates")
 
             hansen = Candidate.last
 
             expect(hansen.name).to eq("Chris Hansen")
-            expect(hansen.votes).to eq("8309")
+            expect(hansen.votes).to eq(8309)
             expect(hansen.incumbent).to be false
             expect(hansen.election_id).to eq(@mayor.id)
 
             expect(page).to have_content(hansen.name)
             expect(page).to have_content("VOTES: #{hansen.votes}")
           end
-
         end
-
       end
     end
   end
-  
 end

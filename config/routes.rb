@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   
   get "/elections/:id/candidates", to: "election_candidates#index"
   get "/elections/:id/candidates/new", to: "election_candidates#new"
+  post "/elections/:id/candidates", to: "election_candidates#create"
   
 end
