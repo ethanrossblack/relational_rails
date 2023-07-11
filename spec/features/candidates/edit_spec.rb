@@ -16,18 +16,43 @@ describe "Candidate Update", type: :feature do
         expect(page).to have_link("Update Candidate")
       end
 
-      describe "When I click the link" do
+      describe "When I click \"Update Candidate\"," do
         it "I am taken to \"/candidates/:id/edit\" where I see a form to edit the candidate's attributes" do
           visit "/candidates/#{@johnston.id}"
 
           click_link("Update Candidate")
 
           expect(current_path).to eq("/candidates/#{@johnston.id}/edit")
-
+          
           expect(page).to have_field("Name", with: "Mike Johnston")
           expect(page).to have_field("Votes", with: 42273)
           expect(page).to have_unchecked_field("Incumbent")
           expect(page).to have_button("Update Candidate")
+        end
+        
+        describe "When I click the button to submit the form \"Update Candidate\"," do
+          it "then a \`PATCH\` request is sent to \"/candidates/:id\", the candidate's data is updated, and I am redirected to the Candidate Show page where I see the Candidate's updated information" do
+            visit "/candidates/#{@johnston.id}/edit"
+            
+            save_and_open_page
+            fill_in("Name", with: "Shmike Shmohnston")
+            fill_in("Votes", with: 42042)
+            check("Incumbent")
+            
+            click_on "Update Candidate"
+            
+            expect(current_path).to eq("/candidates/#{@johnston.id}")
+            
+            @johnston.reload
+
+            expect(@johnston.name).to eq("Shmike Shmohnston")
+            expect(@johnston.votes).to eq(42042)
+            expect(@johnston.incumbent).to be true
+
+            expect(page).to have_content(@johnston.name)
+            expect(page).to have_content("VOTES: #{@johnston.votes}")
+            expect(page).to have_content("INCUMBENT: #{@johnston.incumbent}")
+          end
         end
       end
     end
