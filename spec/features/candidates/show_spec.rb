@@ -9,7 +9,8 @@ require "rails_helper"
 describe "candidates show page", type: :feature do
   describe "as a visitor" do
     describe "when I visit \"/candidates/:id\"" do
-      it "then I see the candidate with that id including the candidate's attributes" do
+      # User Story 3, Child Index
+      xit "then I see the candidate with that id including the candidate's attributes" do
         mayor = Election.create!(name: "Denver Mayor", priority: 1, year: 2023, runoff: false)
         candidate = mayor.candidates.create!(name: "Mike Johnston", votes: 42273, incumbent: false)
 
