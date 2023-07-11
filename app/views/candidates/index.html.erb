@@ -1,6 +1,7 @@
 <h1>Candidates</h1>
 
-<% @candidates.each do |candidate| %>
+<% @candidates.incumbents.each do |candidate| %> <!-- USER STORY 15, Only Incumbents-->
+<%# @candidates.each do |candidate| %> <!-- USER STORY 3, All Candidates-->
   <h3><%= candidate.name %></h3>
   <ul>
     <li><b>VOTES: </b><%= candidate.votes %></li>

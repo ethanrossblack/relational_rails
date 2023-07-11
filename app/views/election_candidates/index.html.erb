@@ -1,6 +1,7 @@
 <h1><%= @election.name %> Candidates</h1>
 
 <%= link_to "Create Candidate", "/elections/#{@election.id}/candidates/new" %>
+<%= link_to "Sort By Name", "/elections/#{@election.id}/candidates?sort=name"%>
 
 <% @candidates.each do |candidate| %>
   <h3><%= candidate.name %></h3>
