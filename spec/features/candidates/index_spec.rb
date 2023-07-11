@@ -62,6 +62,17 @@ RSpec.describe "candidates index page", type: :feature do
 
         expect(page).to_not have_content(@mayor_1.name)
       end
+
+      # User Story 18, Child Update From Childs Index Page 
+      it "I see a link next to each Candidate to edit that Candidate" do
+        visit "/elections/#{@mayor.id}/candidates"
+
+        expect(page).to have_link("Update #{@mayor_1.name}")
+
+        click_link "Update #{@mayor_1.name}"
+
+        expect(current_path).to eq("/candidates/#{@mayor_1.id}/edit")
+      end
     end
   end
 end
