@@ -63,6 +63,7 @@ RSpec.describe "elections show page", type: :feature do
     end
   
     describe "when I visit \"/elections/:election_id/candidates\"" do
+      # User Story 10, Parent Child Index Link
       it "then I see each Candidate that is associated with that Election with each Candidate's attributes" do
         mayor = Election.create!(name: "Denver Mayor", priority: 1, year: 2023, runoff: false)
         johnston = mayor.candidates.create!(name: "Mike Johnston", votes: 42273, incumbent: false)
@@ -73,8 +74,6 @@ RSpec.describe "elections show page", type: :feature do
         obrien = auditor.candidates.create!(name: "Timothy M. O'Brien", votes: 84856, incumbent: true)
 
         visit "/elections/#{mayor.id}/candidates"
-
-        save_and_open_page
 
         expect(page).to have_content(johnston.name)
         expect(page).to have_content(johnston.votes)
@@ -100,7 +99,9 @@ RSpec.describe "elections show page", type: :feature do
         expect(page).to_not have_content(obrien.name)
         expect(page).to_not have_content("ELECTION ID: #{obrien.election_id}")
       end
+      
     end
+
   end
 
 end
