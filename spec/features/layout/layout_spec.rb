@@ -10,9 +10,7 @@ describe "application layout", type: :feature do
         mayor.candidates.create!(name: "Kelly Brough", votes: 34627, incumbent: false)
         
         visit "/elections"
-        
-        save_and_open_page
-        
+                
         expect(page).to have_link("Candidates")
         
         click_link("Candidates")
@@ -35,8 +33,6 @@ describe "application layout", type: :feature do
         mayor.candidates.create!(name: "Kelly Brough", votes: 34627, incumbent: false)
 
         visit "/candidates"
-
-        save_and_open_page
 
         expect(page).to have_link("Elections")
 

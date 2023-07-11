@@ -16,8 +16,6 @@ describe "candidates show page", type: :feature do
 
         visit "/candidates/#{candidate.id}"
 
-        save_and_open_page
-
         expect(page).to have_content(candidate.name)
         expect(page).to have_content(candidate.votes)
         expect(page).to have_content(candidate.incumbent)
