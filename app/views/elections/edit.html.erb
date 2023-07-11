@@ -1,0 +1,17 @@
+<h1>Update Election</h1>
+
+<%=  form_with model: @election, url: "/elections/#{@election.id}", method: :patch do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br>
+
+  <%= form.label :priority %>
+  <%= form.select :priority, [["1 - Citywide, Mayor", 1], ["2 - Citywide, Office", 2], ["3 - Citywide, City Council", 3], ["4 - Disricted, City Council", 4]] %><br>
+
+  <%= form.label :year %>
+  <%= form.text_field :year %><br>
+
+  <%= form.label :runoff, "Runoff?" %>
+  <%= form.check_box :runoff %><br>
+  
+  <%= form.submit "Update Election" %>
+<% end %>

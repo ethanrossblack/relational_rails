@@ -1,0 +1,14 @@
+<h1>Update Candidate</h1>
+
+<%= form_with model: @candidate, url: "/candidates/#{@candidate.id}", method: :patch do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br>
+
+  <%= form.label :votes %>
+  <%= form.text_field :votes %><br>
+
+  <%= form.label :incumbent, "Incumbent?" %>
+  <%= form.check_box :incumbent %><br>
+  
+  <%= form.submit "Update Candidate" %>
+<% end %>

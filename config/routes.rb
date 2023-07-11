@@ -5,11 +5,19 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/elections", to: "elections#index"
+  get "/elections/new", to: "elections#new"
   get "/elections/:id", to: "elections#show"
-  get "/elections/:id/candidates", to: "elections#candidates_index"
-
+  post "/elections", to: "elections#create"
+  get "/elections/:id/edit", to: "elections#edit"
+  patch "/elections/:id", to: "elections#update"
+  
   get "/candidates", to: "candidates#index"
   get "/candidates/:id", to: "candidates#show"
-
-
+  get "/candidates/:id/edit", to: "candidates#edit"
+  patch "/candidates/:id", to: "candidates#update"
+  
+  get "/elections/:id/candidates", to: "election_candidates#index"
+  get "/elections/:id/candidates/new", to: "election_candidates#new"
+  post "/elections/:id/candidates", to: "election_candidates#create"
+  
 end

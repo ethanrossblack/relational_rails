@@ -1,5 +1,7 @@
 <h1><%= @candidate.name %></h1>
 
+<%= link_to "Update Candidate", "/candidates/#{@candidate.id}/edit" %>
+
 <ul>
   <li><b>VOTES: </b><%= @candidate.votes %></li>
   <li><b>INCUMBENT: </b><%= @candidate.incumbent %></li>

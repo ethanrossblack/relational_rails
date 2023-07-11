@@ -1,5 +1,7 @@
 <h1>Elections</h1>
+<%= link_to "New Election", "/elections/new" %>
 
 <% @elections.each do |election| %>
-  <h3 ><%= election.name %></h3><small> CREATED AT: <%= election.created_at %></small>
+  <h3 ><%= election.name %></h3>
+  <small> CREATED AT: <%= election.created_at %></small>
 <% end %>

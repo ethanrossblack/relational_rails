@@ -1,0 +1,14 @@
+<h1>New Candidate</h1>
+
+<%= form_with url: "/elections/#{@election.id}/candidates", method: :post do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br>
+
+  <%= form.label :votes %>
+  <%= form.text_field :votes %><br>
+
+  <%= form.label :incumbent, "Incumbent?" %>
+  <%= form.check_box :incumbent %><br>
+  
+  <%= form.submit "Create Candidate" %>
+<% end %>
