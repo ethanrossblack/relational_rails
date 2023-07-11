@@ -3,5 +3,6 @@
 
 <% @elections.each do |election| %>
   <h3 ><%= election.name %></h3>
-  <small> CREATED AT: <%= election.created_at %></small>
+  <small> CREATED AT: <%= election.created_at %></small><br>
+  <%= link_to "Update #{election.name}", "/elections/#{election.id}/edit" %>
 <% end %>

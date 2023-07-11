@@ -8,6 +8,7 @@ describe "Edit Election", type: :feature do
 
   describe "As a visitor" do
     describe "When I visit an Election show page" do
+      # User Story 12, Parent Update
       it "I can edit the Election by clicking on the \"Update Election\" link" do
         visit "/elections/#{@mayor.id}"
 
