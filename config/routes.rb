@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get "/candidates/:id", to: "candidates#show"
   
   get "/elections/:id/candidates", to: "election_candidates#index"
-
+  get "/elections/:id/candidates/new", to: "election_candidates#new"
+  
 end

@@ -20,19 +20,19 @@ describe "Parent Child Creation", type: :feature do
 
   describe "As a visitor" do
     describe "When I visit a Election Candidate Index page" do
-      xit "then I see a link to add a new Candidate for that Election called, \"Create Candidate\"" do
+      it "then I see a link to add a new Candidate for that Election called, \"Create Candidate\"" do
         visit "/elections/#{@mayor.id}/candidates"
         
         expect(page).to have_link("Create Candidate")
       end
       
       describe "when I click \"Create Candidate\"," do
-        xit "I am taken to \"/elections/:election_id/candidates/new\" where I see a form to add a new Candidate" do
+        it "I am taken to \"/elections/:election_id/candidates/new\" where I see a form to add a new Candidate" do
           visit "/elections/#{@mayor.id}/candidates"
           
-          click_link("Create Candidates")
+          click_link("Create Candidate")
 
-          expect(current_path).to eq("/elections/#{mayor.id}/candidates/new")
+          expect(current_path).to eq("/elections/#{@mayor.id}/candidates/new")
 
           expect(page).to have_field("Name")
           expect(page).to have_field("Votes")
@@ -41,7 +41,7 @@ describe "Parent Child Creation", type: :feature do
         end
 
         describe "When I fill in the form with the Candidate's attributes and click the button \"Create Candidate\"," do
-          xit "then a \"POST\" request is sent to \"/elections/:election_id/candidates\", a new Candidate is created for that Election, and I am redirected to the Election Candidates Index page where I can see the new Candidate listed" do
+          it "then a \"POST\" request is sent to \"/elections/:election_id/candidates\", a new Candidate is created for that Election, and I am redirected to the Election Candidates Index page where I can see the new Candidate listed" do
             visit "/elections/#{@mayor.id}/candidates/new"
             
             fill_in("Name", with: "Chris Hansen")
