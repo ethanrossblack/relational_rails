@@ -34,6 +34,17 @@ RSpec.describe "elections index page", type: :feature do
 
         expect(page).to have_content(@mayor.created_at)
       end
+
+      # User Story 17, Parent Update From Parent Index Page
+      it "next to every election I see a link to update that election" do
+        visit "/elections"
+
+        expect(page).to have_link("Update #{@mayor.name}")
+
+        click_on "Update #{@mayor.name}"
+
+        expect(current_path).to eq("/elections/#{@mayor.id}/edit")
+      end
     end
   end
 end

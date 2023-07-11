@@ -12,4 +12,5 @@
     <li><b>CREATED AT: </b><%= candidate.created_at %></li>
     <li><b>UPDATED AT: </b><%= candidate.updated_at %></li>
   </ul>
+  <%= link_to "Update #{candidate.name}", "/candidates/#{candidate.id}/edit" %>
 <% end %>
